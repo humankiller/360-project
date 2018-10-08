@@ -14,6 +14,8 @@ import java.io.*;
 import project.input;
 import project.actionListener;
 import project.gui;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
 
 public class MainGui {
 
@@ -85,10 +87,22 @@ public class MainGui {
 		textField_2.setColumns(10);
 		
 		JButton btnQuit = new JButton("Quit");
+		btnQuit.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				System.exit(0);
+			}
+		});
 		btnQuit.setBounds(477, 276, 89, 23);
 		frame.getContentPane().add(btnQuit);
 		
 		JButton btnNewButton_1 = new JButton("About");
+		btnNewButton_1.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				
+			}
+		});
 		btnNewButton_1.setBounds(10, 252, 89, 23);
 		frame.getContentPane().add(btnNewButton_1);
 		
