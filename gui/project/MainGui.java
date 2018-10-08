@@ -80,7 +80,7 @@ public class MainGui {
 		textField_1.setColumns(10);
 		
 		JLabel lblDependancies = new JLabel("Dependancies");
-		lblDependancies.setBounds(291, 15, 74, 14);
+		lblDependancies.setBounds(291, 15, 98, 14);
 		frame.getContentPane().add(lblDependancies);
 		
 		textField_2 = new JTextField();
@@ -129,7 +129,7 @@ public class MainGui {
 		frame.getContentPane().add(btnAnalyze);
 		
 		JLabel lblNodesAdded = new JLabel("Nodes Added:");
-		lblNodesAdded.setBounds(10, 75, 74, 14);
+		lblNodesAdded.setBounds(10, 75, 88, 14);
 		frame.getContentPane().add(lblNodesAdded);
 	}
 }
