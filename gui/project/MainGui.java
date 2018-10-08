@@ -110,6 +110,13 @@ public class MainGui {
 		frame.getContentPane().add(btnNewButton_1);
 		
 		JButton btnHelp = new JButton("Help");
+		btnHelp.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				HelpGui Help = new HelpGui();
+				Help.setVisible(true);
+			}
+		});
 		btnHelp.setBounds(10, 276, 106, 23);
 		frame.getContentPane().add(btnHelp);
 		
