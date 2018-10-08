@@ -121,6 +121,12 @@ public class MainGui {
 		frame.getContentPane().add(btnHelp);
 		
 		JButton btnEnterNode = new JButton("Enter node");
+		btnEnterNode.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				// add logic to enter node here
+			}
+		});
 		btnEnterNode.setBounds(460, 71, 106, 23);
 		frame.getContentPane().add(btnEnterNode);
 		
