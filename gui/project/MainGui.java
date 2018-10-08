@@ -20,6 +20,8 @@ import java.awt.event.MouseEvent;
 public class MainGui {
 
 	private JFrame frame;
+	private JFrame HelpFrame;
+	private JFrame AboutFrame;
 	private JTextField textField;
 	private JTextField textField_1;
 	private JTextField textField_2;
@@ -56,7 +58,7 @@ public class MainGui {
 			public void actionPerformed(ActionEvent arg0) {
 			}
 		});
-		btnNewButton.setBounds(477, 135, 89, 23);
+		btnNewButton.setBounds(460, 135, 106, 23);
 		frame.getContentPane().add(btnNewButton);
 		
 		JLabel lblActivityName = new JLabel("Activity Name");
@@ -93,29 +95,30 @@ public class MainGui {
 				System.exit(0);
 			}
 		});
-		btnQuit.setBounds(477, 276, 89, 23);
+		btnQuit.setBounds(460, 276, 106, 23);
 		frame.getContentPane().add(btnQuit);
 		
 		JButton btnNewButton_1 = new JButton("About");
 		btnNewButton_1.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
-				
+				AboutGui About = new AboutGui();
+				About.setVisible(true);
 			}
 		});
-		btnNewButton_1.setBounds(10, 252, 89, 23);
+		btnNewButton_1.setBounds(10, 252, 106, 23);
 		frame.getContentPane().add(btnNewButton_1);
 		
 		JButton btnHelp = new JButton("Help");
-		btnHelp.setBounds(10, 276, 89, 23);
+		btnHelp.setBounds(10, 276, 106, 23);
 		frame.getContentPane().add(btnHelp);
 		
 		JButton btnEnterNode = new JButton("Enter node");
-		btnEnterNode.setBounds(477, 71, 89, 23);
+		btnEnterNode.setBounds(460, 71, 106, 23);
 		frame.getContentPane().add(btnEnterNode);
 		
 		JButton btnAnalyze = new JButton("Analyze");
-		btnAnalyze.setBounds(477, 101, 89, 23);
+		btnAnalyze.setBounds(460, 101, 106, 23);
 		frame.getContentPane().add(btnAnalyze);
 		
 		JLabel lblNodesAdded = new JLabel("Nodes Added:");
