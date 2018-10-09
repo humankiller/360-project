@@ -49,6 +49,7 @@ public class negduration extends JDialog {
 		}
 		{
 			JTextArea txtrPleaseEnterA = new JTextArea();
+			txtrPleaseEnterA.setEditable(false);
 			txtrPleaseEnterA.setText("You must enter a positive value for the duration.\r\n\r\nPlease redo your last input.");
 			txtrPleaseEnterA.setBounds(10, 11, 414, 66);
 			contentPanel.add(txtrPleaseEnterA);

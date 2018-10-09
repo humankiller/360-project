@@ -40,6 +40,7 @@ public class nonintduration extends JDialog {
 		contentPanel.setLayout(null);
 		{
 			JTextArea txtrYouMustEnter = new JTextArea();
+			txtrYouMustEnter.setEditable(false);
 			txtrYouMustEnter.setText("You must enter an integer for the duration.\r\n\r\nPlease redo your last input.");
 			txtrYouMustEnter.setBounds(10, 11, 414, 69);
 			contentPanel.add(txtrYouMustEnter);

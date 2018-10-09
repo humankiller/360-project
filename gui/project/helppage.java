@@ -39,6 +39,7 @@ public class helppage extends JDialog {
 		contentPanel.setLayout(null);
 		{
 			JTextArea txtrAddAppropriateInfo = new JTextArea();
+			txtrAddAppropriateInfo.setEditable(false);
 			txtrAddAppropriateInfo.setBounds(10, 11, 414, 148);
 			txtrAddAppropriateInfo.setText("Add appropriate info in the text boxes and then\r\npress \"enter node\"\r\n\t- be sure that the node name is uniqe\r\n\t- the duration is an integer\r\n\t- the node does not depend on itself\r\nTo clear all nodes press \"reset\"\r\nTo exit program press \"exit\"\r\nTo go back to the main page press \"back\"");
 			contentPanel.add(txtrAddAppropriateInfo);
