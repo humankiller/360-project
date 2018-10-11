@@ -1,6 +1,7 @@
 package project;
 // Default packages
 import java.awt.EventQueue;
+import java.util.*;
 import javax.swing.JFrame;
 import javax.swing.JButton;
 import java.awt.BorderLayout;
@@ -13,6 +14,16 @@ import java.io.*;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 
+class Node{
+	String name,duration, dep;
+public Node(String name, String duration, String dep) {
+	this.name = name;
+	this.duration = duration;
+	this.dep = dep;
+}
+}
+
+
 public class MainGui {
 
 	private JFrame frame;
@@ -21,6 +32,7 @@ public class MainGui {
 	private JTextField textField;
 	private JTextField txtEnterAnInteger;
 	private JTextField textField_2;
+	private JTextField textField_3;
 
 	//***********************
 	//***Start the program***
@@ -38,6 +50,8 @@ public class MainGui {
 		});
 	}
 
+	List<Node> list = new LinkedList<Node>();
+	
 	//**************************************
 	//***Creates the original program gui***
 	//**************************************
@@ -121,8 +135,8 @@ public class MainGui {
 		JButton btnEnterNode = new JButton("Enter node");		// Create enter node button
 		btnEnterNode.addMouseListener(new MouseAdapter() {		// Add mouse click listener to enter node button
 			public void mouseClicked(MouseEvent e) {			// Enter node routine
-				// add logic to enter node here
-				
+			
+			
 				// will check the duration field for an integer
 				String durationStr = txtEnterAnInteger.getText();	// Read text into a string
 				try {												// Try to cast to an int
@@ -135,9 +149,18 @@ public class MainGui {
 					nonintduration nonInt = new nonintduration();	// Create nonintduration object
 					nonInt.setVisible(true);						// Make the object visable
 				}
+				String name = textField.getText();
+				String dep = textField_2.getText();
+				textField_3.setText(textField_3.getText() + name + ",");
+				list.add(new Node(name,durationStr,dep));
+				textField.setText(null);
 				txtEnterAnInteger.setText(null);					// Clear the text field
+				textField_2.setText(null);
 			}
-		});
+
+		}			
+);
+
 		btnEnterNode.setBounds(460, 71, 106, 23);					// Give the button size
 		frame.getContentPane().add(btnEnterNode);					// Add the button to the frame
 		
@@ -148,5 +171,11 @@ public class MainGui {
 		JLabel lblNodesAdded = new JLabel("Nodes Added:");			// Create nodes added label
 		lblNodesAdded.setBounds(10, 75, 88, 14);					// Give the label size
 		frame.getContentPane().add(lblNodesAdded);					// Add the label to the frame
+		textField_3 = new JTextField();							// Create a new text field
+		textField_3.setBounds(10, 101, 275, 20);				// Give the field a size
+		frame.getContentPane().add(textField_3);				// Add the field to the frame
+		textField_3.setColumns(10);								// Set the number of columns
+		textField_3.setText("");
+			
 	}
 }
