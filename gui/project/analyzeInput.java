@@ -64,8 +64,8 @@ public class analyzeInput extends JDialog{
 			JTextArea path = new JTextArea("");
 			contentPanel.add(path);
 			path.setBounds(60, 60, 150, 150);
-			for(Node name : alist)
-			     path.setText(path.getText() + name + ">");
+			for(Node node : alist)
+			     path.setText(path.getText() + node.name + ">");
 			JPanel buttonPane = new JPanel();
 			buttonPane.setLayout(new FlowLayout(FlowLayout.RIGHT));
 			getContentPane().add(buttonPane, BorderLayout.SOUTH);
