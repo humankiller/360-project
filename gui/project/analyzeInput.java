@@ -63,6 +63,7 @@ public class analyzeInput extends JDialog{
 			path.setBounds(60, 60, 150, 150);
 			contentPanel.add(path);
 			int tot_dur = 0;
+			
 			for(Node snode : alist) {
 				if(snode.dep == null) {
 	
