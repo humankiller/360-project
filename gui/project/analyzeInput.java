@@ -19,8 +19,6 @@ import javax.swing.JPanel;
 import javax.swing.JTextArea;
 import javax.swing.JTextField;
 import javax.swing.border.EmptyBorder;
-//
-
 
 
 public class analyzeInput extends JDialog{
@@ -87,6 +85,11 @@ public class analyzeInput extends JDialog{
 			getContentPane().add(buttonPane, BorderLayout.SOUTH);
 			{
 				JButton okButton = new JButton("OK");
+				okButton.addActionListener(new ActionListener() {
+					public void actionPerformed(ActionEvent e) {
+						dispose();
+					}
+				});
 				okButton.setActionCommand("OK");
 				buttonPane.add(okButton);
 				okButton.addMouseListener(new MouseAdapter() {			// Add mouse click listener to quit button
@@ -95,6 +98,7 @@ public class analyzeInput extends JDialog{
 				});
 				getRootPane().setDefaultButton(okButton);
 			}
+<<<<<<< HEAD
 			{
 				JButton cancelButton = new JButton("Cancel");
 				cancelButton.setActionCommand("Cancel");
@@ -104,6 +108,9 @@ public class analyzeInput extends JDialog{
 				});
 				buttonPane.add(cancelButton);
 			}
+=======
+			
+>>>>>>> 0df0c9beb14b76c3beb9e88b6c170eb57d557c05
 		}
 	}
 

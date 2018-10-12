@@ -11,16 +11,14 @@ import javax.swing.JTextArea;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 
-public class nonintduration extends JDialog {
-
-	private final JPanel contentPanel = new JPanel();
+public class deponself extends JDialog {
 
 	/**
 	 * Launch the application.
 	 */
 	public static void main(String[] args) {
 		try {
-			nonintduration dialog = new nonintduration();
+			deponself dialog = new deponself();
 			dialog.setDefaultCloseOperation(JDialog.DISPOSE_ON_CLOSE);
 			dialog.setVisible(true);
 		} catch (Exception e) {
@@ -31,20 +29,9 @@ public class nonintduration extends JDialog {
 	/**
 	 * Create the dialog.
 	 */
-	public nonintduration() {
-		setDefaultCloseOperation(JDialog.DISPOSE_ON_CLOSE);
+	public deponself() {
 		setBounds(100, 100, 450, 200);
-		getContentPane().setLayout(new BorderLayout());
-		contentPanel.setBorder(new EmptyBorder(5, 5, 5, 5));
-		getContentPane().add(contentPanel, BorderLayout.CENTER);
-		contentPanel.setLayout(null);
-		{
-			JTextArea txtrYouMustEnter = new JTextArea();
-			txtrYouMustEnter.setEditable(false);
-			txtrYouMustEnter.setText("You must enter an integer for the duration.\r\n\r\nPlease redo your last input.");
-			txtrYouMustEnter.setBounds(10, 11, 414, 69);
-			contentPanel.add(txtrYouMustEnter);
-		}
+		getContentPane().setLayout(null);
 		{
 			JButton btnOk = new JButton("ok");
 			btnOk.addActionListener(new ActionListener() {
@@ -52,9 +39,14 @@ public class nonintduration extends JDialog {
 					dispose();
 				}
 			});
-			btnOk.setBounds(328, 106, 89, 23);
-			contentPanel.add(btnOk);
+			btnOk.setBounds(335, 127, 89, 23);
+			getContentPane().add(btnOk);
 		}
+		
+		JTextArea txtrYourNodeCan = new JTextArea();
+		txtrYourNodeCan.setText("Your node can not depend upon it self");
+		txtrYourNodeCan.setBounds(10, 11, 414, 93);
+		getContentPane().add(txtrYourNodeCan);
 	}
 
 }

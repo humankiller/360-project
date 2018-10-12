@@ -51,7 +51,7 @@ public class helppage extends JDialog {
 					dispose();
 				}
 			});
-			btnBack.setBounds(10, 228, 89, 23);
+			btnBack.setBounds(335, 228, 89, 23);
 			contentPanel.add(btnBack);
 		}
 		{
