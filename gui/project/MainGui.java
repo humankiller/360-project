@@ -196,7 +196,7 @@ public class MainGui {
 			public void mouseClicked(MouseEvent e) {
 				analyzeInput Ai = new analyzeInput(list);
 				Ai.setVisible(true);
-				textField_3.setText(null);
+				//textField_3.setText(null);
 			}
 		
 
