@@ -7,6 +7,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+import java.util.Collections;
 import java.util.LinkedList;
 import java.util.List;
 
@@ -19,12 +20,7 @@ import javax.swing.JTextArea;
 import javax.swing.JTextField;
 import javax.swing.border.EmptyBorder;
 //
-//
-//ROBERT ADD CODE HERE
-//
-//
-//
-//
+
 
 
 public class analyzeInput extends JDialog{
@@ -36,6 +32,7 @@ public class analyzeInput extends JDialog{
 	 */
 	public static void main(String[] args) {
 		try {
+
 			LinkedList<Node> alist = new LinkedList<Node>();
 			analyzeInput dialog = new analyzeInput(alist);
 			dialog.setDefaultCloseOperation(JDialog.DISPOSE_ON_CLOSE);
@@ -49,6 +46,8 @@ public class analyzeInput extends JDialog{
 	 * Create the dialog.
 	 */
 	public analyzeInput(LinkedList<Node> alist) {
+
+
 		setBounds(100, 100, 450, 300);
 		getContentPane().setLayout(new BorderLayout());
 		contentPanel.setLayout(new FlowLayout());
@@ -62,10 +61,26 @@ public class analyzeInput extends JDialog{
 			contentPanel.add(durationList);
 			durationList.setBounds(50, 50, 150, 150);
 			JTextArea path = new JTextArea("");
-			contentPanel.add(path);
+	
 			path.setBounds(60, 60, 150, 150);
-			for(Node node : alist)
-			     path.setText(path.getText() + node.name + ">");
+			contentPanel.add(path);
+			int tot_dur = 0;
+			for(Node snode : alist) {
+				if(snode.dep == null) {
+	
+				}
+				else {
+				}
+				path.setText(path.getText() + snode.name + ">");
+				int duration = Integer.parseInt(snode.duration);
+				tot_dur = tot_dur + duration;
+			}
+			JTextArea durations = new JTextArea("");
+			durations.setBounds(70, 70, 150, 150);
+			contentPanel.add(durations);
+			durations.setText(String.valueOf(tot_dur));
+			
+			}
 			JPanel buttonPane = new JPanel();
 			buttonPane.setLayout(new FlowLayout(FlowLayout.RIGHT));
 			getContentPane().add(buttonPane, BorderLayout.SOUTH);
@@ -82,5 +97,5 @@ public class analyzeInput extends JDialog{
 			}
 		}
 	}
-}
+
 
