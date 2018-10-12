@@ -78,6 +78,7 @@ public class MainGui {
 			public void mouseClicked(MouseEvent arg0) {			// Reset routine
 				reset rst = new reset(list);					// Create reset object
 				rst.setVisible(true);
+				textField_3.setText(null);
 			}
 		});
 		btnNewButton.setBounds(460, 135, 106, 23);				// Give the button size
@@ -196,7 +197,6 @@ public class MainGui {
 			public void mouseClicked(MouseEvent e) {
 				analyzeInput Ai = new analyzeInput(list);
 				Ai.setVisible(true);
-				//textField_3.setText(null);
 			}
 		
 
