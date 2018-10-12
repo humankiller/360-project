@@ -1,11 +1,22 @@
 package project;
 
 import java.awt.BorderLayout;
+import java.awt.EventQueue;
 import java.awt.FlowLayout;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
+import java.util.LinkedList;
+import java.util.List;
 
 import javax.swing.JButton;
 import javax.swing.JDialog;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
 import javax.swing.JPanel;
+import javax.swing.JTextArea;
+import javax.swing.JTextField;
 import javax.swing.border.EmptyBorder;
 //
 //
@@ -15,7 +26,7 @@ import javax.swing.border.EmptyBorder;
 //
 //
 
-public class analyzeInput extends JDialog {
+public class analyzeInput extends JDialog{
 
 	private final JPanel contentPanel = new JPanel();
 
@@ -39,9 +50,15 @@ public class analyzeInput extends JDialog {
 		setBounds(100, 100, 450, 300);
 		getContentPane().setLayout(new BorderLayout());
 		contentPanel.setLayout(new FlowLayout());
-		contentPanel.setBorder(new EmptyBorder(5, 5, 5, 5));
-		getContentPane().add(contentPanel, BorderLayout.CENTER);
+		contentPanel.setBorder(new EmptyBorder(5, 5, 5, 5));	
+		getContentPane().add(contentPanel, BorderLayout.WEST);
 		{
+			JTextArea activitiesList = new JTextArea("Activities Path('s)");
+			contentPanel.add(activitiesList);
+			activitiesList.setBounds(50, 50, 150, 150);
+			JTextArea durationList = new JTextArea("Duration");
+			contentPanel.add(durationList);
+			durationList.setBounds(50, 50, 150, 150);
 			JPanel buttonPane = new JPanel();
 			buttonPane.setLayout(new FlowLayout(FlowLayout.RIGHT));
 			getContentPane().add(buttonPane, BorderLayout.SOUTH);
@@ -58,5 +75,9 @@ public class analyzeInput extends JDialog {
 			}
 		}
 	}
-
+	public static void analyzeInput(List<Node> alist) {
+		for(Node str : alist) {
+			System.out.println(str);
+		}
+	}
 }

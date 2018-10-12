@@ -29,11 +29,12 @@ public class MainGui {
 	private JFrame frame;
 	private JFrame HelpFrame;
 	private JFrame AboutFrame;
+	private JFrame AiFrame;
 	private JTextField textField;
 	private JTextField txtEnterAnInteger;
 	private JTextField textField_2;
 	private JTextField textField_3;
-
+	
 	//***********************
 	//***Start the program***
 	//***********************
@@ -56,6 +57,7 @@ public class MainGui {
 	//***Creates the original program gui***
 	//**************************************
 	public MainGui() {											// Initialize the main gui
+
 		initialize();											// Run initialize
 	}
 
@@ -167,6 +169,15 @@ public class MainGui {
 		JButton btnAnalyze = new JButton("Analyze");				// Create the analyze button
 		btnAnalyze.setBounds(460, 101, 106, 23);					// Give the button size
 		frame.getContentPane().add(btnAnalyze);						// Add the button to the frame
+		btnAnalyze.addMouseListener(new MouseAdapter() {		// Add mouse click listener to enter node button
+			public void mouseClicked(MouseEvent e) {
+				analyzeInput Ai = new analyzeInput();
+				Ai.setVisible(true);
+				textField_3.setText(null);
+
+			}
+			
+		});
 		
 		JLabel lblNodesAdded = new JLabel("Nodes Added:");			// Create nodes added label
 		lblNodesAdded.setBounds(10, 75, 88, 14);					// Give the label size
