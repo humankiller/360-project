@@ -15,8 +15,9 @@ import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 
 class Node{
-	String name,duration, dep;
-public Node(String name, String duration, String dep) {
+	String name,duration;
+	String[] dep;
+public Node(String name, String duration, String[] dep) {
 	this.name = name;
 	this.duration = duration;
 	this.dep = dep;
@@ -157,6 +158,7 @@ public class MainGui {
 				}
 				String name = textField.getText();
 				String dep = textField_2.getText();
+
 				if (new String(dep).equals(name)) {
 					textField.setText(null);
 					textField_2.setText(null);
@@ -171,6 +173,15 @@ public class MainGui {
 					txtEnterAnInteger.setText(null);					// Clear the text field
 					textField_2.setText(null);
 				}
+
+				textField_3.setText(textField_3.getText() + name + ",");
+				String delim = "[,]";
+				String[] tokens = dep.split(delim);
+				list.add(new Node(name,durationStr,tokens));
+				textField.setText(null);
+				txtEnterAnInteger.setText(null);					// Clear the text field
+				textField_2.setText(null);
+
 			}
 
 		});
