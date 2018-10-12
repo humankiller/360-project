@@ -75,6 +75,8 @@ public class MainGui {
 		JButton btnNewButton = new JButton("reset");			// Create reset button
 		btnNewButton.addMouseListener(new MouseAdapter() {		// Add mouse click listener to reset button
 			public void mouseClicked(MouseEvent arg0) {			// Reset routine
+				reset rst = new reset(list);					// Create reset object
+				rst.setVisible(true);
 			}
 		});
 		btnNewButton.setBounds(460, 135, 106, 23);				// Give the button size
@@ -155,15 +157,23 @@ public class MainGui {
 				}
 				String name = textField.getText();
 				String dep = textField_2.getText();
-				textField_3.setText(textField_3.getText() + name + ",");
-				list.add(new Node(name,durationStr,dep));
-				textField.setText(null);
-				txtEnterAnInteger.setText(null);					// Clear the text field
-				textField_2.setText(null);
+				if (new String(dep).equals(name)) {
+					textField.setText(null);
+					textField_2.setText(null);
+					txtEnterAnInteger.setText(null);
+					deponself badDep= new deponself();
+					badDep.setVisible(true);
+				}
+				else {
+					textField_3.setText(textField_3.getText() + name + ",");
+					list.add(new Node(name,durationStr,dep));
+					textField.setText(null);
+					txtEnterAnInteger.setText(null);					// Clear the text field
+					textField_2.setText(null);
+				}
 			}
 
-		}			
-);
+		});
 
 		btnEnterNode.setBounds(460, 71, 106, 23);					// Give the button size
 		frame.getContentPane().add(btnEnterNode);					// Add the button to the frame
@@ -171,7 +181,7 @@ public class MainGui {
 		JButton btnAnalyze = new JButton("Analyze");				// Create the analyze button
 		btnAnalyze.setBounds(460, 101, 106, 23);					// Give the button size
 		frame.getContentPane().add(btnAnalyze);						// Add the button to the frame
-		btnAnalyze.addMouseListener(new MouseAdapter() {		// Add mouse click listener to enter node button
+		btnAnalyze.addMouseListener(new MouseAdapter() {			// Add mouse click listener to enter node button
 			public void mouseClicked(MouseEvent e) {
 				analyzeInput Ai = new analyzeInput(list);
 				Ai.setVisible(true);

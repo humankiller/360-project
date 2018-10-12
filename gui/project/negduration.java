@@ -32,7 +32,7 @@ public class negduration extends JDialog {
 	 * Create the dialog.
 	 */
 	public negduration() {
-		setBounds(100, 100, 443, 179);
+		setBounds(100, 100, 450, 200);
 		getContentPane().setLayout(new BorderLayout());
 		contentPanel.setBorder(new EmptyBorder(5, 5, 5, 5));
 		getContentPane().add(contentPanel, BorderLayout.CENTER);
@@ -44,7 +44,7 @@ public class negduration extends JDialog {
 					dispose();
 				}
 			});
-			btnBack.setBounds(10, 88, 89, 23);
+			btnBack.setBounds(328, 106, 89, 23);
 			contentPanel.add(btnBack);
 		}
 		{
