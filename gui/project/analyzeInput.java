@@ -89,11 +89,19 @@ public class analyzeInput extends JDialog{
 				JButton okButton = new JButton("OK");
 				okButton.setActionCommand("OK");
 				buttonPane.add(okButton);
+				okButton.addMouseListener(new MouseAdapter() {			// Add mouse click listener to quit button
+					public void mouseClicked(MouseEvent e) {			// Quit routine
+						dispose();					}
+				});
 				getRootPane().setDefaultButton(okButton);
 			}
 			{
 				JButton cancelButton = new JButton("Cancel");
 				cancelButton.setActionCommand("Cancel");
+				cancelButton.addMouseListener(new MouseAdapter() {			// Add mouse click listener to quit button
+					public void mouseClicked(MouseEvent e) {			// Quit routine
+						dispose();					}
+				});
 				buttonPane.add(cancelButton);
 			}
 		}
