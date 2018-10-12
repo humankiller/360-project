@@ -158,6 +158,8 @@ public class MainGui {
 				}
 				String name = textField.getText();
 				String dep = textField_2.getText();
+				String delim = "[,]";
+				String[] tokens = dep.split(delim);
 
 				if (new String(dep).equals(name)) {
 					textField.setText(null);
@@ -168,19 +170,17 @@ public class MainGui {
 				}
 				else {
 					textField_3.setText(textField_3.getText() + name + ",");
-					list.add(new Node(name,durationStr,dep));
+					list.add(new Node(name,durationStr,tokens));
 					textField.setText(null);
 					txtEnterAnInteger.setText(null);					// Clear the text field
 					textField_2.setText(null);
 				}
 
-				textField_3.setText(textField_3.getText() + name + ",");
-				String delim = "[,]";
-				String[] tokens = dep.split(delim);
-				list.add(new Node(name,durationStr,tokens));
-				textField.setText(null);
-				txtEnterAnInteger.setText(null);					// Clear the text field
-				textField_2.setText(null);
+				//textField_3.setText(textField_3.getText() + name + ",");
+				//list.add(new Node(name,durationStr,tokens));
+				//textField.setText(null);
+				//txtEnterAnInteger.setText(null);					// Clear the text field
+				//textField_2.setText(null);
 
 			}
 

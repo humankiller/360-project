@@ -98,7 +98,7 @@ public class analyzeInput extends JDialog{
 				});
 				getRootPane().setDefaultButton(okButton);
 			}
-<<<<<<< HEAD
+//<<<<<<< HEAD
 			{
 				JButton cancelButton = new JButton("Cancel");
 				cancelButton.setActionCommand("Cancel");
@@ -108,9 +108,9 @@ public class analyzeInput extends JDialog{
 				});
 				buttonPane.add(cancelButton);
 			}
-=======
+//=======
 			
->>>>>>> 0df0c9beb14b76c3beb9e88b6c170eb57d557c05
+//>>>>>>> 0df0c9beb14b76c3beb9e88b6c170eb57d557c05
 		}
 	}
 
