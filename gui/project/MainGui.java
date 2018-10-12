@@ -25,7 +25,7 @@ public Node(String name, String duration, String dep) {
 
 
 public class MainGui {
-
+	analyzeInput ai;
 	private JFrame frame;
 	private JFrame HelpFrame;
 	private JFrame AboutFrame;
@@ -49,9 +49,10 @@ public class MainGui {
 				}
 			}
 		});
+
 	}
 
-	List<Node> list = new LinkedList<Node>();
+	 LinkedList<Node> list = new LinkedList<Node>();
 	
 	//**************************************
 	//***Creates the original program gui***
@@ -59,6 +60,7 @@ public class MainGui {
 	public MainGui() {											// Initialize the main gui
 
 		initialize();											// Run initialize
+
 	}
 
 	//**************************************
@@ -171,14 +173,14 @@ public class MainGui {
 		frame.getContentPane().add(btnAnalyze);						// Add the button to the frame
 		btnAnalyze.addMouseListener(new MouseAdapter() {		// Add mouse click listener to enter node button
 			public void mouseClicked(MouseEvent e) {
-				analyzeInput Ai = new analyzeInput();
+				analyzeInput Ai = new analyzeInput(list);
 				Ai.setVisible(true);
 				textField_3.setText(null);
-
 			}
-			
-		});
 		
+
+		});
+
 		JLabel lblNodesAdded = new JLabel("Nodes Added:");			// Create nodes added label
 		lblNodesAdded.setBounds(10, 75, 88, 14);					// Give the label size
 		frame.getContentPane().add(lblNodesAdded);					// Add the label to the frame

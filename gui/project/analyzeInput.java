@@ -26,6 +26,7 @@ import javax.swing.border.EmptyBorder;
 //
 //
 
+
 public class analyzeInput extends JDialog{
 
 	private final JPanel contentPanel = new JPanel();
@@ -35,7 +36,8 @@ public class analyzeInput extends JDialog{
 	 */
 	public static void main(String[] args) {
 		try {
-			analyzeInput dialog = new analyzeInput();
+			LinkedList<Node> alist = new LinkedList<Node>();
+			analyzeInput dialog = new analyzeInput(alist);
 			dialog.setDefaultCloseOperation(JDialog.DISPOSE_ON_CLOSE);
 			dialog.setVisible(true);
 		} catch (Exception e) {
@@ -46,7 +48,7 @@ public class analyzeInput extends JDialog{
 	/**
 	 * Create the dialog.
 	 */
-	public analyzeInput() {
+	public analyzeInput(LinkedList<Node> alist) {
 		setBounds(100, 100, 450, 300);
 		getContentPane().setLayout(new BorderLayout());
 		contentPanel.setLayout(new FlowLayout());
@@ -59,6 +61,11 @@ public class analyzeInput extends JDialog{
 			JTextArea durationList = new JTextArea("Duration");
 			contentPanel.add(durationList);
 			durationList.setBounds(50, 50, 150, 150);
+			JTextArea path = new JTextArea("");
+			contentPanel.add(path);
+			path.setBounds(60, 60, 150, 150);
+			for(Node name : alist)
+			     path.setText(path.getText() + name + ">");
 			JPanel buttonPane = new JPanel();
 			buttonPane.setLayout(new FlowLayout(FlowLayout.RIGHT));
 			getContentPane().add(buttonPane, BorderLayout.SOUTH);
@@ -75,9 +82,5 @@ public class analyzeInput extends JDialog{
 			}
 		}
 	}
-	public static void analyzeInput(List<Node> alist) {
-		for(Node str : alist) {
-			System.out.println(str);
-		}
-	}
 }
+
