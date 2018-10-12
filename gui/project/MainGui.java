@@ -181,9 +181,9 @@ public class MainGui {
 
 		});
 
-		JLabel lblNodesAdded = new JLabel("Nodes Added:");			// Create nodes added label
-		lblNodesAdded.setBounds(10, 75, 88, 14);					// Give the label size
-		frame.getContentPane().add(lblNodesAdded);					// Add the label to the frame
+		JLabel lblNodesAdded = new JLabel("Nodes Added:");		// Create nodes added label
+		lblNodesAdded.setBounds(10, 75, 88, 14);				// Give the label size
+		frame.getContentPane().add(lblNodesAdded);				// Add the label to the frame
 		textField_3 = new JTextField();							// Create a new text field
 		textField_3.setBounds(10, 101, 275, 20);				// Give the field a size
 		frame.getContentPane().add(textField_3);				// Add the field to the frame
