@@ -30,6 +30,8 @@ public class analyzeInput extends JDialog{
 	 */
 	public static void main(String[] args) {
 		try {
+			String thisName,thisDuration;
+			String[] thisDep;
 
 			LinkedList<Node> alist = new LinkedList<Node>();
 			analyzeInput dialog = new analyzeInput(alist);
@@ -65,14 +67,42 @@ public class analyzeInput extends JDialog{
 			int tot_dur = 0;
 			
 			for(Node snode : alist) {
-				if(snode.dep == null) {
-	
+				//if(snode.dep.length ==0) {
+				//	path.setText(path.getText() + snode.name + ">");
+				//	int duration = Integer.parseInt(snode.duration);
+				//	tot_dur = tot_dur + duration;
+
+				//}
+				//else {
+					for(String str : snode.dep) {
+						if(str.isEmpty()) {
+							Node thisNode = new Node(snode.name,snode.duration,snode.dep);
+							boolean isRemoved = alist.remove(snode);
+							path.setText(path.getText() + thisNode.name + ">");
+							int duration = Integer.parseInt(thisNode.duration);
+							tot_dur = tot_dur + duration;
+						//}
+						//else {
+							for(Node snode2 : alist) {
+								//if(snode2.name.equals(snode.name)) {
+								//}
+								//else	
+								for(String str2 : snode2.dep) {
+									if(str2.equals(thisNode.name)) {
+										path.setText(path.getText() + snode2.name + ">");
+										int duration2 = Integer.parseInt(snode2.duration);
+										tot_dur = tot_dur + duration;
+										str2 = "";
+						}}
+							}}
 				}
-				else {
-				}
-				path.setText(path.getText() + snode.name + ">");
-				int duration = Integer.parseInt(snode.duration);
-				tot_dur = tot_dur + duration;
+				//path.setText(path.getText() + snode.name + ">");
+				//for(String str : snode.dep) {
+				//	path.setText(path.getText() + str + " ");
+				//}
+				//int duration = Integer.parseInt(snode.duration);
+				//tot_dur = tot_dur + duration;
+
 			}
 			JTextArea durations = new JTextArea("");
 			durations.setBounds(70, 70, 150, 150);
