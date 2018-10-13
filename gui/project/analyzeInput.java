@@ -90,6 +90,7 @@ public class analyzeInput extends JDialog{
 				okButton.setActionCommand("OK");
 				buttonPane.add(okButton);
 				getRootPane().setDefaultButton(okButton);
+				alist.clear();
 			}
 			{
 				JButton cancelButton = new JButton("Cancel");
