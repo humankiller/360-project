@@ -196,7 +196,7 @@ public class MainGui {
 
 		});
 
-		btnEnterNode.setBounds(460, 71, 106, 23);					// Give the button size
+		btnEnterNode.setBounds(336, 71, 106, 23);					// Give the button size
 		frame.getContentPane().add(btnEnterNode);					// Add the button to the frame
 		
 		JButton btnAnalyze = new JButton("Analyze");				// Create the analyze button
