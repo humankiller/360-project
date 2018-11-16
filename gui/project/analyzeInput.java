@@ -19,6 +19,17 @@ import javax.swing.JPanel;
 import javax.swing.JTextArea;
 import javax.swing.JTextField;
 import javax.swing.border.EmptyBorder;
+class rNode{
+	String name,duration;
+
+public rNode(String name, String duration) {
+	this.name = name;
+	this.duration = duration;
+
+
+}
+}
+
 
 
 public class analyzeInput extends JDialog{
@@ -30,7 +41,6 @@ public class analyzeInput extends JDialog{
 	 */
 	public static void main(String[] args) {
 		try {
-
 			LinkedList<Node> alist = new LinkedList<Node>();
 			analyzeInput dialog = new analyzeInput(alist);
 			dialog.setDefaultCloseOperation(JDialog.DISPOSE_ON_CLOSE);
@@ -45,7 +55,7 @@ public class analyzeInput extends JDialog{
 	 */
 	public analyzeInput(LinkedList<Node> alist) {
 
-
+		LinkedList<rNode> resultList = new LinkedList<rNode>();
 		setBounds(100, 100, 450, 300);
 		getContentPane().setLayout(new BorderLayout());
 		contentPanel.setLayout(new FlowLayout());
@@ -58,28 +68,64 @@ public class analyzeInput extends JDialog{
 			JTextArea durationList = new JTextArea("Duration");
 			contentPanel.add(durationList);
 			durationList.setBounds(50, 50, 150, 150);
-			JTextArea path = new JTextArea("");
-	
-			path.setBounds(60, 60, 150, 150);
-			contentPanel.add(path);
-			int tot_dur = 0;
-			
+			int duration2,tot_dur;
 			for(Node snode : alist) {
-				if(snode.dep == null) {
+				if((snode.isStart) && (!snode.placed)) {
+					snode.placed = true;
+					rNode thisNode = new rNode(snode.name,snode.duration);
+					resultList.add(thisNode);		
+				}
+			}
+				//	if(!snode.isStart) {
+				//		for(String str : snode.dep)
+				//			for(rNode rn : resultList){
+			for(rNode rnode : resultList) {
+								for(Node snode1 : alist) {
+									for(String str : snode1.dep) {
+										if(str.equals(rnode.name)) {
+											rNode thisNode = new rNode(snode1.name,snode1.duration);
+											String delim = "[>]";
+											String[] tokens = rnode.name.split(delim);
+											if(tokens[0].equals(str)) {
+											snode1.placed = true;
+											rnode.name = rnode.name.concat(">");
+											rnode.name = rnode.name.concat(snode1.name);
+											duration2 = Integer.parseInt(rnode.duration);
+											tot_dur = Integer.parseInt(snode1.duration);
+											tot_dur = tot_dur + duration2;
+											rnode.duration = Integer.toString(tot_dur);
+									}
+											
+										}
+									}
+								}
+			}
+								
 	
+		}
+
+		
+			for(Node chkNode : alist) {
+				if(!(chkNode.placed)) {
+					JTextField path = new JTextField("");
+					path.setBounds(60, 60, 150, 150);
+					contentPanel.add(path,BorderLayout.CENTER);
+					path.setText("Node not connected");
 				}
-				else {
+			}
+				//else {
+					for(rNode resNode : resultList) {
+						JTextField path = new JTextField("");
+						path.setBounds(60, 60, 150, 150);
+						contentPanel.add(path,BorderLayout.CENTER);
+						path.setText(resNode.name);
+						JTextArea durations = new JTextArea("");
+						durations.setBounds(70, 70, 150, 150);
+						contentPanel.add(durations);
+						durations.setText(resNode.duration);
 				}
-				path.setText(path.getText() + snode.name + ">");
-				int duration = Integer.parseInt(snode.duration);
-				tot_dur = tot_dur + duration;
-			}
-			JTextArea durations = new JTextArea("");
-			durations.setBounds(70, 70, 150, 150);
-			contentPanel.add(durations);
-			durations.setText(String.valueOf(tot_dur));
-			
-			}
+		//	}
+			//}
 			JPanel buttonPane = new JPanel();
 			buttonPane.setLayout(new FlowLayout(FlowLayout.RIGHT));
 			getContentPane().add(buttonPane, BorderLayout.SOUTH);
@@ -97,6 +143,7 @@ public class analyzeInput extends JDialog{
 						dispose();					}
 				});
 				getRootPane().setDefaultButton(okButton);
+				alist.clear();
 			}
 //<<<<<<< HEAD
 			{
