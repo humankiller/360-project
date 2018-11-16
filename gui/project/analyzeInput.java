@@ -76,19 +76,20 @@ public class analyzeInput extends JDialog{
 					resultList.add(thisNode);		
 				}
 			}
-
+/*
+ * 
+ */
 			for(rNode rnode : resultList) {
-								for(Node snode1 : alist) {
-									for(String str : snode1.dep) {
-										String delim1 = "[,]";
-										String tokens1[] = str.split(delim1);
-										for(int index = 0;index < tokens1.length;index++) {
-										
-											String delim = "[>]";
-											String[] tokens = rnode.name.split(delim);
-											if(tokens[tokens.length-1].equals(tokens1[index])) {
-											snode1.placed = true;
-											rnode.name = rnode.name.concat(">");
+				for(Node snode1 : alist) {
+					for(String str : snode1.dep) {
+						String delim1 = "[,]";
+						String tokens1[] = str.split(delim1);
+						for(int index = 0;index < tokens1.length;index++) {
+							String delim = "[>]";
+							String[] tokens = rnode.name.split(delim);
+							if(tokens[tokens.length-1].equals(tokens1[index])) {
+							snode1.placed = true;
+							rnode.name = rnode.name.concat(">");
 											rnode.name = rnode.name.concat(snode1.name);
 											duration2 = Integer.parseInt(rnode.duration);
 											tot_dur = Integer.parseInt(snode1.duration);
@@ -113,7 +114,7 @@ public class analyzeInput extends JDialog{
 					path.setText("Node not connected");
 				}
 			}
-				//else {
+					int longest = 0;
 					for(rNode resNode : resultList) {
 						JTextField path = new JTextField("");
 						path.setBounds(60, 60, 150, 150);
@@ -123,9 +124,13 @@ public class analyzeInput extends JDialog{
 						durations.setBounds(70, 70, 150, 150);
 						contentPanel.add(durations);
 						durations.setText(resNode.duration);
+						if(Integer.parseInt(resNode.duration) > longest) {
+							rNode critNode = new rNode(resNode.name,resNode.duration);
+							longest = Integer.parseInt(resNode.duration);
+						}
 				}
-		//	}
-			//}
+	
+	
 			JPanel buttonPane = new JPanel();
 			buttonPane.setLayout(new FlowLayout(FlowLayout.RIGHT));
 			getContentPane().add(buttonPane, BorderLayout.SOUTH);
