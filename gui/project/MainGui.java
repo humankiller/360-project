@@ -17,10 +17,13 @@ import java.awt.event.MouseEvent;
 class Node{
 	String name,duration;
 	String[] dep;
-public Node(String name, String duration, String[] dep) {
+	boolean isStart, placed;
+public Node(String name, String duration, String[] dep,boolean isStart, boolean placed) {
 	this.name = name;
 	this.duration = duration;
 	this.dep = dep;
+	this.isStart = isStart;
+	this.placed = placed;
 }
 }
 
@@ -161,6 +164,8 @@ public class MainGui {
 				String dep = textField_2.getText();
 				String delim = "[,]";
 				String[] tokens = dep.split(delim);
+				boolean isStart = false;
+				boolean placed = false;
 
 				if (new String(dep).equals(name)) {
 					textField.setText(null);
@@ -171,7 +176,10 @@ public class MainGui {
 				}
 				else {
 					textField_3.setText(textField_3.getText() + name + ",");
-					list.add(new Node(name,durationStr,tokens));
+					if(new String(dep).isEmpty()) {
+						isStart = true;
+					}
+					list.add(new Node(name,durationStr,tokens,isStart,placed));
 					textField.setText(null);
 					txtEnterAnInteger.setText(null);					// Clear the text field
 					textField_2.setText(null);
