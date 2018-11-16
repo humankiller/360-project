@@ -41,8 +41,6 @@ public class analyzeInput extends JDialog{
 	 */
 	public static void main(String[] args) {
 		try {
-
-			
 			LinkedList<Node> alist = new LinkedList<Node>();
 			analyzeInput dialog = new analyzeInput(alist);
 			dialog.setDefaultCloseOperation(JDialog.DISPOSE_ON_CLOSE);

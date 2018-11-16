@@ -34,6 +34,7 @@ public class MainGui {
 	private JFrame HelpFrame;
 	private JFrame AboutFrame;
 	private JFrame AiFrame;
+	private JFrame fileOut;
 	private JTextField textField;
 	private JTextField txtEnterAnInteger;
 	private JTextField textField_2;
@@ -76,7 +77,7 @@ public class MainGui {
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);	// Make the frame exit the program on close
 		frame.getContentPane().setLayout(null);					// Make there be no default layout
 		
-		JButton btnNewButton = new JButton("reset");			// Create reset button
+		JButton btnNewButton = new JButton("Reset");			// Create reset button
 		btnNewButton.addMouseListener(new MouseAdapter() {		// Add mouse click listener to reset button
 			public void mouseClicked(MouseEvent arg0) {			// Reset routine
 				reset rst = new reset(list);					// Create reset object
@@ -84,7 +85,7 @@ public class MainGui {
 				textField_3.setText(null);
 			}
 		});
-		btnNewButton.setBounds(460, 135, 106, 23);				// Give the button size
+		btnNewButton.setBounds(460, 252, 106, 23);				// Give the button size
 		frame.getContentPane().add(btnNewButton);				// Add the button to the frame
 		
 		JLabel lblActivityName = new JLabel("Activity Name");	// Create a label
@@ -143,7 +144,7 @@ public class MainGui {
 		btnHelp.setBounds(10, 276, 106, 23);					// Give the button size
 		frame.getContentPane().add(btnHelp);					// Add the button to the frame
 		
-		JButton btnEnterNode = new JButton("Enter node");		// Create enter node button
+		JButton btnEnterNode = new JButton("Enter Node");		// Create enter node button
 		btnEnterNode.addMouseListener(new MouseAdapter() {		// Add mouse click listener to enter node button
 			public void mouseClicked(MouseEvent e) {			// Enter node routine
 			
@@ -199,7 +200,7 @@ public class MainGui {
 		frame.getContentPane().add(btnEnterNode);					// Add the button to the frame
 		
 		JButton btnAnalyze = new JButton("Analyze");				// Create the analyze button
-		btnAnalyze.setBounds(460, 101, 106, 23);					// Give the button size
+		btnAnalyze.setBounds(460, 139, 106, 23);					// Give the button size
 		frame.getContentPane().add(btnAnalyze);						// Add the button to the frame
 		btnAnalyze.addMouseListener(new MouseAdapter() {			// Add mouse click listener to enter node button
 			public void mouseClicked(MouseEvent e) {
@@ -218,6 +219,19 @@ public class MainGui {
 		frame.getContentPane().add(textField_3);				// Add the field to the frame
 		textField_3.setColumns(10);								// Set the number of columns
 		textField_3.setText("");
+		
+		JButton btnNewButton_2 = new JButton("Send To File");
+		btnNewButton_2.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				fileOut = new fileOut();
+			}
+		});
+		btnNewButton_2.setBounds(460, 173, 106, 23);
+		frame.getContentPane().add(btnNewButton_2);
+		
+		JButton btnNewButton_3 = new JButton("Critical Path");
+		btnNewButton_3.setBounds(460, 105, 106, 23);
+		frame.getContentPane().add(btnNewButton_3);
 			
 	}
 }
