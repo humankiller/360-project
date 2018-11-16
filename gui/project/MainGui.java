@@ -223,7 +223,8 @@ public class MainGui {
 		JButton btnNewButton_2 = new JButton("Send To File");
 		btnNewButton_2.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				//fileOut = new fileOut();
+				fileout fileout = new fileout();
+				fileout.setVisible(true);
 			}
 		});
 		btnNewButton_2.setBounds(460, 173, 106, 23);
