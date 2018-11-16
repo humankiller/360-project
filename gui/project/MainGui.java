@@ -28,7 +28,7 @@ public Node(String name, String duration, String[] dep,boolean isStart, boolean 
 }
 class critPath{
 	String name,duration;
-	boolean islongest;
+	boolean islongest = false;
 public critPath(String name, String duration, boolean islongest) {
 	this.name = name;
 	this.duration = duration;

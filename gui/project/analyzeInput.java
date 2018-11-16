@@ -88,7 +88,8 @@ public class analyzeInput extends JDialog{
 						for(int index = 0;index < tokens1.length;index++) {
 							String delim = "[>]";
 							String[] tokens = rnode.name.split(delim);
-							if(tokens[tokens.length-1].equals(tokens1[index])) {
+							for(int index2 = 0; index2 < tokens.length; index2++) {
+							if((tokens[index2].equals(tokens1[index]))) {
 							snode1.placed = true;
 							rnode.name = rnode.name.concat(">");
 											rnode.name = rnode.name.concat(snode1.name);
@@ -99,6 +100,7 @@ public class analyzeInput extends JDialog{
 									}
 											
 										}
+						}
 									}
 								}
 			}
