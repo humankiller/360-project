@@ -26,7 +26,15 @@ public Node(String name, String duration, String[] dep,boolean isStart, boolean 
 	this.placed = placed;
 }
 }
-
+class critPath{
+	String name,duration;
+	boolean islongest;
+public critPath(String name, String duration, boolean islongest) {
+	this.name = name;
+	this.duration = duration;
+	this.islongest = islongest;
+}
+}
 
 public class MainGui {
 	analyzeInput ai;
@@ -58,6 +66,7 @@ public class MainGui {
 	}
 
 	 LinkedList<Node> list = new LinkedList<Node>();
+	 LinkedList<critPath> cPath = new LinkedList<critPath>();
 	
 	//**************************************
 	//***Creates the original program gui***
@@ -204,7 +213,7 @@ public class MainGui {
 		frame.getContentPane().add(btnAnalyze);						// Add the button to the frame
 		btnAnalyze.addMouseListener(new MouseAdapter() {			// Add mouse click listener to enter node button
 			public void mouseClicked(MouseEvent e) {
-				analyzeInput Ai = new analyzeInput(list);
+				analyzeInput Ai = new analyzeInput(list,cPath);
 				Ai.setVisible(true);
 			}
 		

@@ -42,7 +42,8 @@ public class analyzeInput extends JDialog{
 	public static void main(String[] args) {
 		try {
 			LinkedList<Node> alist = new LinkedList<Node>();
-			analyzeInput dialog = new analyzeInput(alist);
+			LinkedList<critPath> clist = new LinkedList<critPath>();
+			analyzeInput dialog = new analyzeInput(alist,clist);
 			dialog.setDefaultCloseOperation(JDialog.DISPOSE_ON_CLOSE);
 			dialog.setVisible(true);
 		} catch (Exception e) {
@@ -53,7 +54,7 @@ public class analyzeInput extends JDialog{
 	/**
 	 * Create the dialog.
 	 */
-	public analyzeInput(LinkedList<Node> alist) {
+	public analyzeInput(LinkedList<Node> alist,LinkedList<critPath> clist) {
 
 		LinkedList<rNode> resultList = new LinkedList<rNode>();
 		setBounds(100, 100, 450, 300);
@@ -121,11 +122,13 @@ public class analyzeInput extends JDialog{
 						contentPanel.add(path,BorderLayout.CENTER);
 						path.setText(resNode.name);
 						JTextArea durations = new JTextArea("");
-						durations.setBounds(70, 70, 150, 150);
+						durations.setBounds(70, 70, 150,150);
 						contentPanel.add(durations);
 						durations.setText(resNode.duration);
-						if(Integer.parseInt(resNode.duration) > longest) {
-							rNode critNode = new rNode(resNode.name,resNode.duration);
+						if(Integer.parseInt(resNode.duration) >= longest) {
+							boolean islongest = true;
+							critPath clist1 = new critPath(resNode.name,resNode.duration,islongest);
+							clist.add(clist1);
 							longest = Integer.parseInt(resNode.duration);
 						}
 				}
