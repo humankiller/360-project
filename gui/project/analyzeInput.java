@@ -78,17 +78,17 @@ public class analyzeInput extends JDialog{
 					resultList.add(thisNode);		
 				}
 			}
-				//	if(!snode.isStart) {
-				//		for(String str : snode.dep)
-				//			for(rNode rn : resultList){
+
 			for(rNode rnode : resultList) {
 								for(Node snode1 : alist) {
 									for(String str : snode1.dep) {
-										if(str.equals(rnode.name)) {
-											rNode thisNode = new rNode(snode1.name,snode1.duration);
+										String delim1 = "[,]";
+										String tokens1[] = str.split(delim1);
+										for(int index = 0;index < tokens1.length;index++) {
+										
 											String delim = "[>]";
 											String[] tokens = rnode.name.split(delim);
-											if(tokens[0].equals(str)) {
+											if(tokens[tokens.length-1].equals(tokens1[index])) {
 											snode1.placed = true;
 											rnode.name = rnode.name.concat(">");
 											rnode.name = rnode.name.concat(snode1.name);
