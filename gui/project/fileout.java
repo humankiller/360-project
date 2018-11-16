@@ -8,8 +8,11 @@ import javax.swing.border.EmptyBorder;
 import javax.swing.JLabel;
 import javax.swing.JTextField;
 import java.awt.event.ActionListener;
+import java.io.BufferedWriter;
 import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.*;
 import java.awt.event.ActionEvent;
 
 public class fileout extends JDialog {
@@ -52,16 +55,41 @@ public class fileout extends JDialog {
 		JButton btnNewButton = new JButton("Ok");
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				Date date = new Date();
+				String strDate= date.toString();
 				String fileName = textField.getText();	// Read text into a string
 				PrintWriter outputFile = null;
 				try {
-					outputFile = new PrintWriter(fileName);
+					outputFile = new PrintWriter(fileName + ".txt");
 				} catch (FileNotFoundException error) {
 					error.printStackTrace();
 				}
+				BufferedWriter writer = new BufferedWriter(outputFile);
+				try {
+					writer.write("File Name: " + fileName);
+					writer.newLine();
+					writer.write(strDate);
+					writer.newLine();
+					writer.newLine();
+					writer.write("List of all activities:");
+					writer.newLine();
+					writer.newLine();
+					// act logic
+					writer.newLine();
+					writer.newLine();
+					writer.write("List of all paths and total durations:");
+					writer.newLine();
+				} catch (IOException e1) {
+					e1.printStackTrace();
+				}
 				
 				
-				outputFile.close();
+				try {
+					writer.close();
+					outputFile.close();
+				} catch (IOException e1) {
+					e1.printStackTrace();
+				}
 				dispose();
 			}
 		});
