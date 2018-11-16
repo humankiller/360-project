@@ -130,10 +130,15 @@ public class analyzeInput extends JDialog{
 							critPath clist1 = new critPath(resNode.name,resNode.duration,islongest);
 							clist.add(clist1);
 							longest = Integer.parseInt(resNode.duration);
+							for(critPath critPath2 : clist) {
+								if((Integer.parseInt(critPath2.duration)) < longest){
+									critPath2.islongest = false;
+								}
+							}
 						}
 				}
 	
-	
+			
 			JPanel buttonPane = new JPanel();
 			buttonPane.setLayout(new FlowLayout(FlowLayout.RIGHT));
 			getContentPane().add(buttonPane, BorderLayout.SOUTH);
