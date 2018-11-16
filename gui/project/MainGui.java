@@ -34,6 +34,7 @@ public class MainGui {
 	private JFrame HelpFrame;
 	private JFrame AboutFrame;
 	private JFrame AiFrame;
+	private JFrame fileOut;
 	private JTextField textField;
 	private JTextField txtEnterAnInteger;
 	private JTextField textField_2;
@@ -222,7 +223,7 @@ public class MainGui {
 		JButton btnNewButton_2 = new JButton("Send To File");
 		btnNewButton_2.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				fileout = new fileout();
+				fileOut = new fileOut();
 			}
 		});
 		btnNewButton_2.setBounds(460, 173, 106, 23);
