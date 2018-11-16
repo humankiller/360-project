@@ -144,10 +144,6 @@ public class MainGui {
 		frame.getContentPane().add(btnHelp);					// Add the button to the frame
 		
 		JButton btnEnterNode = new JButton("Enter Node");		// Create enter node button
-		btnEnterNode.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent arg0) {
-			}
-		});
 		btnEnterNode.addMouseListener(new MouseAdapter() {		// Add mouse click listener to enter node button
 			public void mouseClicked(MouseEvent e) {			// Enter node routine
 			
@@ -224,6 +220,11 @@ public class MainGui {
 		textField_3.setText("");
 		
 		JButton btnNewButton_2 = new JButton("Send To File");
+		btnNewButton_2.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				fileout = new fileout();
+			}
+		});
 		btnNewButton_2.setBounds(460, 173, 106, 23);
 		frame.getContentPane().add(btnNewButton_2);
 		
