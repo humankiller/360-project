@@ -42,7 +42,7 @@ public class analyzeInput extends JDialog{
 	public static void main(String[] args) {
 		try {
 			LinkedList<Node> alist = new LinkedList<Node>();
-			LinkedList<critPath> clist = new LinkedList<critPath>();
+			LinkedList<critPathData> clist = new LinkedList<critPathData>();
 			analyzeInput dialog = new analyzeInput(alist,clist);
 			dialog.setDefaultCloseOperation(JDialog.DISPOSE_ON_CLOSE);
 			dialog.setVisible(true);
@@ -54,7 +54,7 @@ public class analyzeInput extends JDialog{
 	/**
 	 * Create the dialog.
 	 */
-	public analyzeInput(LinkedList<Node> alist,LinkedList<critPath> clist) {
+	public analyzeInput(LinkedList<Node> alist,LinkedList<critPathData> clist) {
 
 		LinkedList<rNode> resultList = new LinkedList<rNode>();
 		setBounds(100, 100, 450, 300);
@@ -127,10 +127,10 @@ public class analyzeInput extends JDialog{
 						durations.setText(resNode.duration);
 						if(Integer.parseInt(resNode.duration) >= longest) {
 							boolean islongest = true;
-							critPath clist1 = new critPath(resNode.name,resNode.duration,islongest);
+							critPathData clist1 = new critPathData(resNode.name,resNode.duration,islongest);
 							clist.add(clist1);
 							longest = Integer.parseInt(resNode.duration);
-							for(critPath critPath2 : clist) {
+							for(critPathData critPath2 : clist) {
 								if((Integer.parseInt(critPath2.duration)) < longest){
 									critPath2.islongest = false;
 								}
@@ -158,7 +158,6 @@ public class analyzeInput extends JDialog{
 				getRootPane().setDefaultButton(okButton);
 				alist.clear();
 			}
-//<<<<<<< HEAD
 			{
 				JButton cancelButton = new JButton("Cancel");
 				cancelButton.setActionCommand("Cancel");
@@ -168,9 +167,6 @@ public class analyzeInput extends JDialog{
 				});
 				buttonPane.add(cancelButton);
 			}
-//=======
-			
-//>>>>>>> 0df0c9beb14b76c3beb9e88b6c170eb57d557c05
 		}
 	}
 

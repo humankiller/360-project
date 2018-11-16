@@ -26,10 +26,10 @@ public Node(String name, String duration, String[] dep,boolean isStart, boolean 
 	this.placed = placed;
 }
 }
-class critPath{
+class critPathData{
 	String name,duration;
 	boolean islongest;
-public critPath(String name, String duration, boolean islongest) {
+public critPathData(String name, String duration, boolean islongest) {
 	this.name = name;
 	this.duration = duration;
 	this.islongest = islongest;
@@ -66,7 +66,7 @@ public class MainGui {
 	}
 
 	 LinkedList<Node> list = new LinkedList<Node>();
-	 LinkedList<critPath> cPath = new LinkedList<critPath>();
+	 LinkedList<critPathData> cPath = new LinkedList<critPathData>();
 	
 	//**************************************
 	//***Creates the original program gui***
@@ -232,7 +232,8 @@ public class MainGui {
 		JButton btnNewButton_2 = new JButton("Send To File");
 		btnNewButton_2.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				//fileOut = new fileOut();
+				fileout file = new fileout();
+				file.setVisible(true);
 			}
 		});
 		btnNewButton_2.setBounds(460, 173, 106, 23);
