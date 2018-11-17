@@ -33,7 +33,7 @@ public rNode(String name, String duration) {
 
 
 public class analyzeInput extends JDialog{
-
+	
 	private final JPanel contentPanel = new JPanel();
 
 	/**
@@ -115,8 +115,11 @@ public class analyzeInput extends JDialog{
 					path.setText("Node not connected");
 				}
 			}
+					
 					int longest = 0;
 					for(rNode resNode : resultList) {
+				
+						
 						JTextField path = new JTextField("");
 						path.setBounds(60, 60, 150, 150);
 						contentPanel.add(path,BorderLayout.CENTER);

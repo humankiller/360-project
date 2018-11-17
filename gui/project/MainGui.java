@@ -47,7 +47,7 @@ public class MainGui {
 	private JTextField txtEnterAnInteger;
 	private JTextField textField_2;
 	private JTextField textField_3;
-	
+	critPath critpath;
 	//***********************
 	//***Start the program***
 	//***********************
@@ -66,6 +66,8 @@ public class MainGui {
 	}
 
 	 LinkedList<Node> list = new LinkedList<Node>();
+	 LinkedList<Node> list2 = new LinkedList<Node>();
+	 LinkedList<Node> list3 = new LinkedList<Node>();
 	 LinkedList<critPathData> cPath = new LinkedList<critPathData>();
 	
 	//**************************************
@@ -94,7 +96,7 @@ public class MainGui {
 				textField_3.setText(null);
 			}
 		});
-		btnNewButton.setBounds(460, 252, 106, 23);				// Give the button size
+		btnNewButton.setBounds(437, 252, 129, 23);				// Give the button size
 		frame.getContentPane().add(btnNewButton);				// Add the button to the frame
 		
 		JLabel lblActivityName = new JLabel("Activity Name");	// Create a label
@@ -130,7 +132,7 @@ public class MainGui {
 				System.exit(0);									// Exit the program
 			}
 		});
-		btnQuit.setBounds(460, 276, 106, 23);					// Give the button size
+		btnQuit.setBounds(437, 276, 129, 23);					// Give the button size
 		frame.getContentPane().add(btnQuit);					// Add the button to the frame
 		
 		JButton btnNewButton_1 = new JButton("About");			// Create about button
@@ -140,7 +142,7 @@ public class MainGui {
 				About.setVisible(true);							// Make the object visible
 			}
 		});
-		btnNewButton_1.setBounds(10, 252, 106, 23);				// Give the button size
+		btnNewButton_1.setBounds(10, 252, 129, 23);				// Give the button size
 		frame.getContentPane().add(btnNewButton_1);				// Add the button to the frame
 		
 		JButton btnHelp = new JButton("Help");					// Create help button
@@ -150,7 +152,7 @@ public class MainGui {
 				Help.setVisible(true);							// Make the object visible
 			}
 		});
-		btnHelp.setBounds(10, 276, 106, 23);					// Give the button size
+		btnHelp.setBounds(10, 276, 129, 23);					// Give the button size
 		frame.getContentPane().add(btnHelp);					// Add the button to the frame
 		
 		JButton btnEnterNode = new JButton("Enter Node");		// Create enter node button
@@ -190,6 +192,7 @@ public class MainGui {
 						isStart = true;
 					}
 					list.add(new Node(name,durationStr,tokens,isStart,placed));
+					list2.add(new Node(name,durationStr,tokens,isStart,placed));
 					textField.setText(null);
 					txtEnterAnInteger.setText(null);					// Clear the text field
 					textField_2.setText(null);
@@ -205,11 +208,11 @@ public class MainGui {
 
 		});
 
-		btnEnterNode.setBounds(460, 71, 106, 23);					// Give the button size
+		btnEnterNode.setBounds(301, 71, 126, 23);					// Give the button size
 		frame.getContentPane().add(btnEnterNode);					// Add the button to the frame
 		
 		JButton btnAnalyze = new JButton("Analyze");				// Create the analyze button
-		btnAnalyze.setBounds(460, 139, 106, 23);					// Give the button size
+		btnAnalyze.setBounds(437, 139, 129, 23);					// Give the button size
 		frame.getContentPane().add(btnAnalyze);						// Add the button to the frame
 		btnAnalyze.addMouseListener(new MouseAdapter() {			// Add mouse click listener to enter node button
 			public void mouseClicked(MouseEvent e) {
@@ -232,16 +235,35 @@ public class MainGui {
 		JButton btnNewButton_2 = new JButton("Send To File");
 		btnNewButton_2.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				fileout file = new fileout();
+				String foo = textField_3.getText();
+				fileout file = new fileout(list2, foo);
 				file.setVisible(true);
 			}
 		});
-		btnNewButton_2.setBounds(460, 173, 106, 23);
+		btnNewButton_2.setBounds(437, 173, 129, 23);
 		frame.getContentPane().add(btnNewButton_2);
-		
+
 		JButton btnNewButton_3 = new JButton("Critical Path");
-		btnNewButton_3.setBounds(460, 105, 106, 23);
+		btnNewButton_3.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				critPath critpath = new critPath(list3);
+				critpath.setVisible(true);
+			}
+			
+		});
+		
+		btnNewButton_3.setBounds(437, 105, 129, 23);
 		frame.getContentPane().add(btnNewButton_3);
+
+		JButton btnNewButton_4 = new JButton("Change duration");
+		btnNewButton_4.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				changeDuration newduration = new changeDuration();
+				newduration.setVisible(true);
+			}
+		});
+		btnNewButton_4.setBounds(437, 71, 129, 23);
+		frame.getContentPane().add(btnNewButton_4);
 			
 	}
 }

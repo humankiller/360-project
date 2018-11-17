@@ -1,0 +1,10 @@
+File Name: hello
+Fri Nov 16 16:30:07 MST 2018
+
+List of all activities:
+
+a,b,c,
+
+List of all paths and total durations:
+a>b7
+c4
